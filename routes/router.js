@@ -29,14 +29,22 @@ router.get('/api', async (req, res) => {
 
 router.get('/', (req, res) => {
     res.sendFile(path.join( 'index.html'))
-  
+  })
+router.get('/home',(req,res)=>{
+    res.send('<h1 style= "margin-left:40%; margin-top:10vh; padding:3rem;">404 page not found<br/> <a style="text-decoration:none; font-size:2rem; "  href=/><p style="border:1px solid  black; font-size:1rem; padding:1rem; width:5rem;">GO BACK</p></a><h1>')
+})
+router.get('/about',(req,res)=>{
+    res.send('<h1 style= "margin-left:40%; margin-top:10vh; padding:3rem;">404 page not found<br/> <a style="text-decoration:none; font-size:2rem; "  href=/><p style="border:1px solid  black; font-size:1rem; padding:1rem; width:5rem;">GO BACK</p></a><h1>')
 
 })
-// router.get('/about', (req, res) => {
-//     res.sendFile(path.join( 'AboutUs.js'))
-  
+router.get('/services',(req,res)=>{
+    res.send('<h1 style= "margin-left:40%; margin-top:10vh; padding:3rem;">404 page not found<br/> <a style="text-decoration:none; font-size:2rem; "  href=/><p style="border:1px solid  black; font-size:1rem; padding:1rem; width:5rem;">GO BACK</p></a><h1>')
 
-// })
+})
+router.get('/contact',(req,res)=>{
+    res.send('<h1 style= "margin-left:40%; margin-top:10vh; padding:3rem;">404 page not found<br/> <a style="text-decoration:none; font-size:2rem; "  href=/><p style="border:1px solid  black; font-size:1rem; padding:1rem; width:5rem;">GO BACK</p></a><h1>')
+
+})
 
 router.post('/register', async (req, res, next) => {
     const { name, email, number } = req.body
@@ -59,10 +67,7 @@ router.post('/register', async (req, res, next) => {
         else if (number.length !== 10) {
             res.status(422).send('this is invalid number')
         }
-        else if (userExist) {
-
-            res.status(422).send('user already exists')
-        }
+    
         else {
 
 
