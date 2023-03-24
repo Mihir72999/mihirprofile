@@ -50,7 +50,7 @@ router.post('/register', async (req, res, next) => {
     const { name, email, number } = req.body
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const userExist = await Registers.findOne({ email })
+
 
 
     if (!name || !email || !number) {
