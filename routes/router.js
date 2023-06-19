@@ -101,7 +101,7 @@ router.post('/register', async (req, res, next) => {
 
 
 
-router.post('/login', async (req, res , next) => {
+router.post('/login', authantication,async (req, res , next) => {
  try{
     const { message } = req.body
     const findUser = await Registers.findOne({_id : req.userId})
@@ -117,7 +117,7 @@ router.post('/login', async (req, res , next) => {
  }catch(error){
     console.log(error)
  }
-      next(authantication)
+      next()
    
 })
 
@@ -125,13 +125,13 @@ router.get('/router',(req,res)=>{
     res.status(200).send('welcome to route')
 })
 
-router.get('/getUserData',  async (req, res) => {
+router.get('/getUserData',authantication,  async (req, res) => {
     console.log(req.rootUser)
- next(authantication)
+ 
     const data = req.rootUser
 
     res.send({ data: [data] })
-    
+    next()
 })
 
 export default router   
