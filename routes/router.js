@@ -101,7 +101,7 @@ router.post('/register', async (req, res, next) => {
 
 
 
-router.post('/login',authantication, async (req, res) => {
+router.post('/login', async (req, res , next) => {
  try{
     const { message } = req.body
     const findUser = await Registers.findOne({_id : req.userId})
@@ -117,7 +117,7 @@ router.post('/login',authantication, async (req, res) => {
  }catch(error){
     console.log(error)
  }
-      
+      next(authantication)
    
 })
 
