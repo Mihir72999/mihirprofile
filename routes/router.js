@@ -125,12 +125,13 @@ router.get('/router',(req,res)=>{
     res.status(200).send('welcome to route')
 })
 
-router.get('/getUserData', authantication, async (req, res) => {
+router.get('/getUserData',  async (req, res) => {
     console.log(req.rootUser)
 
     const data = req.rootUser
 
     res.send({ data: [data] })
+     next(authantication)
 })
 
 export default router   
