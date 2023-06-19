@@ -5,7 +5,7 @@ const authantication = async(req,res,next) =>{
         const tokens = req.cookies.jwtToken;
         const verifyToken = jwt.verify(tokens,"MIHIR")
         const getRootUser = await register.findOne({_id:verifyToken._id,"tokens.token":tokens})
-      if(!getRootUser) {throw new Error('User Not found')} 
+      if(!getRootUser) {res.json({message:"user not found"})} 
       req.tokens = tokens;
       req.rootUser = getRootUser;
       req.userId = getRootUser._id;      
