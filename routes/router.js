@@ -65,8 +65,9 @@ router.post('/register', async (req, res, next) => {
 
 
         else if (number.length !== 10) {
+            alert('your number should be exect 10 number')
             res.status(422).send('this is invalid number')
-            alert('your number must in 10 world')
+        
         }
     
         else {
@@ -91,7 +92,7 @@ router.post('/register', async (req, res, next) => {
              
             console.log(register)
            await register.save()
-            res.status(200).redirect('/contactform')
+            res.status(200).json({"message":"data send successfully"})
         }
     } catch (error) {
         res.status(422).send('Invalid Registration')
