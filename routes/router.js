@@ -90,7 +90,7 @@ router.post('/register', async (req, res, next) => {
              
             console.log(register)
            await register.save()
-            res.status(200).send('data save successfuly')
+            res.status(200).redirect('/contactform')
         }
     } catch (error) {
         res.status(422).send('Invalid Registration')
