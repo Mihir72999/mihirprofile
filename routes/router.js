@@ -66,6 +66,7 @@ router.post('/register', async (req, res, next) => {
 
         else if (number.length !== 10) {
             res.status(422).send('this is invalid number')
+            alert('your number must in 10 world')
         }
     
         else {
